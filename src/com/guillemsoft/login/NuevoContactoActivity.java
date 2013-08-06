@@ -2,11 +2,16 @@ package com.guillemsoft.login;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class NuevoContactoActivity extends Activity {
@@ -17,6 +22,7 @@ private EditText telefonoEditText;
 private EditText emailEditText;
 private Button guardarButton;
 private Button cancelarButton;
+private ImageButton fotoButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,7 @@ private Button cancelarButton;
 		emailEditText=(EditText) findViewById(R.id.EmailEditText);
 		guardarButton=(Button) findViewById(R.id.GuardarButton);
 		cancelarButton=(Button) findViewById(R.id.CancelarButton);
+		fotoButton=(ImageButton) findViewById(R.id.fotoButton);
 		cancelarButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -47,6 +54,41 @@ private Button cancelarButton;
 				guardarContacto();
 			}
 		});
+		
+		fotoButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mostrarSeleccionImagen();
+				
+				
+				
+			}
+		});
+	}
+
+	protected void mostrarSeleccionImagen() {
+		Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Seleccione la fuente para la imagen").
+		setItems(R.array.imagenes,  new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				
+				if(which==0){
+					Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
+					intent.setType("image/*");
+					startActivityForResult(intent, 1);
+				}else{
+					Intent intent=new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+					startActivityForResult(intent, 1);
+					
+				}
+				
+			}
+		});
+		AlertDialog dialogo = builder.create();
+		dialogo.show();
+		
 	}
 
 	@Override
@@ -73,7 +115,7 @@ private Button cancelarButton;
 			contacto.setTelefono(telefono);
 			contacto.setEmail(email);
 			
-			ContactosDAO contactosDAO=new ContactosDAO();
+			ContactosDAOSQLLite contactosDAO=ContactosDAOSQLLite.getInstance(getApplicationContext());
 			contactosDAO.guardarContacto(contacto);
 			finish();
 			

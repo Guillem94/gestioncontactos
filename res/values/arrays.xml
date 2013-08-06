@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="imagenes">
+        <item>Galería</item>
+        <item>Cámara</item>
+    </array>
+</resources>

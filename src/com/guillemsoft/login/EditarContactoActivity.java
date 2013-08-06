@@ -45,7 +45,7 @@ private Button cancelarButton;
 		
 		Intent intent=getIntent();
 		id=intent.getIntExtra("contactoid", 0);
-		ContactosDAO contactosDAO=new ContactosDAO();
+		ContactosDAOSQLLite contactosDAO=ContactosDAOSQLLite.getInstance(getApplicationContext());
 		Contacto contacto=contactosDAO.recuperarContacto(id);
 		
 		nombreEditText.setText(contacto.getNombre());
@@ -126,7 +126,7 @@ private Button cancelarButton;
 			toast.show();
 			
 		}
-		ContactosDAO contactosDAO=new ContactosDAO();
+		ContactosDAOSQLLite contactosDAO=ContactosDAOSQLLite.getInstance(getApplicationContext());
 		Contacto contacto=new Contacto();
 		contacto.setId(id);
 		contacto.setNombre(nombre);
@@ -137,7 +137,7 @@ private Button cancelarButton;
 		contactosDAO.actualizarContacto(contacto);
 	}
 	private void eliminarContacto(){
-	ContactosDAO contactosDAO=new ContactosDAO();
+    ContactosDAOSQLLite contactosDAO=ContactosDAOSQLLite.getInstance(getApplicationContext());
 	contactosDAO.eliminarContacto(id);
 	}
 

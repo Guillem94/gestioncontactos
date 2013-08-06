@@ -10,21 +10,28 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class ContactosDAOSQLLite extends SQLiteOpenHelper {
+	private static ContactosDAOSQLLite instance=null;
+	
 	private static String createSQL = "create table Contactos"
 			+ "(id Integer primary key," + "nombre VARCHAR NULL,"
 			+ "apellidos VARCHAR NULL," + "direccion VARCHAR NULL,"
-			+ "telefono VARCHAR NULL," + "email VARCHAR NULL)";
-	
+			+ "telefono VARCHAR NULL," + "email VARCHAR NULL)";	
 	private static String guardarSQL= "insert into Contactos(nombre,apellidos,direccion,telefono,email) Values (?,?,?,?,?)";
 	private static String eliminarSQL="Delete from Contactos where id = ?";
 	private static String actualizarSQL="Update Contactos set nombre=?,apellidos=?,direccion=?,telefono=?,email=? Where id=?";
 	private static String recuperarContactosSQL="select * from Contactos";
 	private static String recuperarContactoSQL="select * from Contactos where id=?";
 
-	public ContactosDAOSQLLite(Context context, String name,
+	public static ContactosDAOSQLLite getInstance(Context context){
+		if (instance==null){
+			instance= new ContactosDAOSQLLite(context, "gestorcontactos", null, 1);
+		}
+		return instance;
+	}
+	
+	private ContactosDAOSQLLite(Context context, String name,
 			CursorFactory factory, int version) {
 		super(context, name, factory, version);
-
 	}
 
 	@Override
@@ -61,6 +68,7 @@ public class ContactosDAOSQLLite extends SQLiteOpenHelper {
 		List<Contacto> contactos=new ArrayList<Contacto>();
 		SQLiteDatabase db = getReadableDatabase();
 		Cursor cursor=db.rawQuery(recuperarContactoSQL, new String[]{""+id});
+		cursor.moveToFirst();
 		Contacto contacto=new  Contacto();
 		contacto.setId(cursor.getInt(cursor.getColumnIndex("id")));
 		contacto.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));

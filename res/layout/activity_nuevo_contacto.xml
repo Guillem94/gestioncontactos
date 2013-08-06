@@ -47,14 +47,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/GuardarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/direccionTextView"
-        android:layout_centerVertical="true"
-        android:text="Guardar" />
-
-    <Button
         android:id="@+id/CancelarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -121,5 +113,32 @@
         android:layout_alignLeft="@+id/TelefonoEditText"
         android:ems="10"
         android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emailTextView"
+        android:layout_below="@+id/EmailEditText"
+        android:text="Foto:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageButton
+        android:id="@+id/fotoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/EmailEditText"
+        android:layout_alignRight="@+id/EmailEditText"
+        android:layout_below="@+id/EmailEditText"
+        android:src="@drawable/ic_action_name" />
+
+    <Button
+        android:id="@+id/GuardarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fotoButton"
+        android:layout_marginTop="14dp"
+        android:layout_toLeftOf="@+id/fotoButton"
+        android:text="Guardar" />
 
 </RelativeLayout>

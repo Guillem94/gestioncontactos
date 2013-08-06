@@ -34,15 +34,7 @@ private Button listarContactosButton;
 				Intent intent=new Intent (getApplicationContext(),ListarContactosActivity.class);
 				startActivity(intent);
 			}
-		});
-		Contacto contacto=new Contacto();
-	    contacto.setNombre("Guillem");		
-	    contacto.setApellidos("Carrion");
-		contacto.setDireccion("calle colon 5,Valencia");
-		contacto.setEmail("prueba@hotmail.es");
-	    contacto.setTelefono("966333222");
-	    ContactosDAO contactosDAO=new ContactosDAO();
-		contactosDAO.guardarContacto(contacto);
+		});	
 	}
 
 	@Override

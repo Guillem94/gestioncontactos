@@ -35,7 +35,7 @@ public class ListarContactosActivity extends Activity {
 	
 	public void refrescarContactos(){
 		contactosLinearLayout.removeAllViewsInLayout();
-		ContactosDAO contactosDAO = new ContactosDAO();
+		ContactosDAOSQLLite contactosDAO=ContactosDAOSQLLite.getInstance(getApplicationContext());
 		List<Contacto> contactos = contactosDAO.recuperarContactos();
 		for (int i = 0; i < contactos.size(); i++) {
 			final Contacto contacto = contactos.get(i);
