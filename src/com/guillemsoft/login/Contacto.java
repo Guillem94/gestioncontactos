@@ -7,6 +7,7 @@ public class Contacto {
 	private String direccion;
 	private String telefono;
 	private String email;
+	private byte[] imagen;
 	
 	public String getNombre() {
 		return nombre;
@@ -54,6 +55,14 @@ public class Contacto {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
 	}
 
 

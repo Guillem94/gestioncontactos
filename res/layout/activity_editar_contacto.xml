@@ -27,50 +27,6 @@
         android:ems="10"
         android:inputType="textEmailAddress" />
 
-    <Button
-        android:id="@+id/guardarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/emailTextView"
-        android:layout_below="@+id/emailEditText"
-        android:layout_marginTop="86dp"
-        android:text="Actualizar" />
-
-    <Button
-        android:id="@+id/cancelarEditarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/eliminarButton"
-        android:layout_alignBottom="@+id/eliminarButton"
-        android:layout_alignRight="@+id/emailEditText"
-        android:text="Cancelar" />
-
-    <Button
-        android:id="@+id/eliminarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/guardarButton"
-        android:layout_centerHorizontal="true"
-        android:text="Eliminar" />
-
-    <TextView
-        android:id="@+id/emailTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/telefonoTextView"
-        android:layout_below="@+id/telefonoEditText"
-        android:text="email"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/telefonoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/direccionTextView"
-        android:layout_below="@+id/direccionEditText"
-        android:text="telefono"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -80,21 +36,13 @@
         android:text="apellidos"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/direccionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/telefonoTextView"
-        android:layout_toLeftOf="@+id/eliminarButton"
-        android:text="direccion"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <EditText
         android:id="@+id/nombreEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView1"
         android:layout_alignBottom="@+id/textView1"
+        android:layout_alignLeft="@+id/apellidosEditText"
         android:layout_alignParentRight="true"
         android:ems="10"
         android:inputType="textPersonName" />
@@ -131,5 +79,74 @@
         android:layout_alignTop="@+id/telefonoTextView"
         android:ems="10"
         android:inputType="phone" />
+
+    <ImageButton
+        android:id="@+id/fotoButtonEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/telefonoEditText"
+        android:layout_alignRight="@+id/emailEditText"
+        android:layout_below="@+id/emailEditText"
+        android:src="@drawable/ic_action_name" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fotoButtonEditar"
+        android:layout_alignLeft="@+id/textView2"
+        android:text="Imagen:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/telefonoEditText"
+        android:text="email"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/telefonoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emailTextView"
+        android:layout_below="@+id/direccionEditText"
+        android:text="telefono"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/direccionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/telefonoTextView"
+        android:layout_alignLeft="@+id/telefonoTextView"
+        android:text="direccion"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/eliminarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/cancelarEditarButton"
+        android:layout_toLeftOf="@+id/cancelarEditarButton"
+        android:text="Eliminar" />
+
+    <Button
+        android:id="@+id/guardarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/direccionTextView"
+        android:layout_below="@+id/textView3"
+        android:text="Actualizar" />
+
+    <Button
+        android:id="@+id/cancelarEditarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/guardarButton"
+        android:layout_alignRight="@+id/emailEditText"
+        android:text="Cancelar" />
 
 </RelativeLayout>
